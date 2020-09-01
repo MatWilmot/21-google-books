@@ -1,7 +1,9 @@
-import React, { Component, useEffect } from "react";
-import logo from "./logo.svg";
+import React, { useEffect } from "react";
 import "./App.css";
 import API from "./utils/API";
+import SearchBar from "./components/SearchBar";
+import NavBar from "./components/NavBar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   useEffect(() => {
@@ -12,15 +14,22 @@ function App() {
 
   return (
     <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
-      </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/search">
+            <div className="container text-center">
+              <SearchBar />
+            </div>
+          </Route>
+          <Route exact path="/saved"></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
 
 export default App;
+
+{
+}
