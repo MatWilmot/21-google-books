@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <ul className="nav justify-content-center">
       <li className="nav-item">
-        <Link to="/search" className="nav-link active">
+        <Link to="/" className="nav-link active">
           Search
         </Link>
       </li>
