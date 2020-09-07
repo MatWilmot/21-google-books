@@ -1,15 +1,15 @@
 import axios from "axios";
 
 export default {
-  // Search by title
-  search: function (type, str) {
-    return axios.get(`/search/${type}/${str}`);
-  },
+  // flexible search
+  search: (type, str) => axios.get(`/search/${type}/${str}`),
 
-  // search by author
-  searchAuthor: function (str) {
-    return axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=inauthor:${str}&key=${process.env.GOOGLE_API}`
-    );
-  },
+  // save a book to the db
+  saveBook: (obj) => axios.post("/books", obj),
+
+  // get all books from the db
+  getBooks: function () {},
+
+  // remove a book from the db
+  removeBook: function () {},
 };

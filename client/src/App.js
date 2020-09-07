@@ -7,12 +7,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SearchResults from "./components/SearchResults";
 
 function App() {
-  useEffect(() => {
-    API.search("of mice and men")
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }, []);
-
   const [params, setParams] = useState({ search: "", type: "" });
   const [results, setResults] = useState([]);
 
@@ -28,10 +22,14 @@ function App() {
     e.preventDefault();
     if (params.search !== "" && params.type !== "") {
       API.search(params.type, params.search).then((response) => {
-        console.log(response.data.items);
+        console.log("Results:", response.data.items);
         setResults(response.data.items);
       });
     }
+  };
+
+  const handleSave = (obj) => {
+    API.saveBook(obj);
   };
 
   return (
@@ -45,7 +43,7 @@ function App() {
               type={updateType}
               submit={searchGoogleBooks}
             />
-            <SearchResults results={results} />
+            <SearchResults results={results} save={handleSave} />
           </Route>
           <Route exact path="/saved"></Route>
         </Switch>
