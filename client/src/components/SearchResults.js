@@ -35,6 +35,7 @@ const SearchResults = (props) => {
                 href={element.volumeInfo.canonicalVolumeLink}
                 className="btn btn-primary"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 See More
               </a>

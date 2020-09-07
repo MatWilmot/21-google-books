@@ -8,8 +8,8 @@ export default {
   saveBook: (obj) => axios.post("/books", obj),
 
   // get all books from the db
-  getBooks: function () {},
+  getBooks: () => axios.get("/books"),
 
   // remove a book from the db
-  removeBook: function () {},
+  removeBook: (id) => axios.delete("/books/" + id),
 };
