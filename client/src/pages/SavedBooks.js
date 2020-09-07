@@ -3,7 +3,7 @@ import React from "react";
 const SavedBooks = (props) => {
   return (
     <div className="container">
-      <h1>Search Results:</h1>
+      <h1>Saved Books:</h1>
       <div className="text-left mt-5">
         {props.books.map((element, index) => (
           <div key={index} className="my-4 row">
